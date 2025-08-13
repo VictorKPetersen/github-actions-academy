@@ -68,6 +68,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ Docker-image ]
     steps:
+      - name: Download artifcact
+        uses: actions/download-artifact@v5
+        with:
+          name: code
+          path: .
       - name: Execute component tests
         run: bash ci/component-test.sh
 
@@ -76,5 +81,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ Docker-image ]
     steps:
+      - name: Download artifcact
+        uses: actions/download-artifact@v5
+        with:
+          name: code
+          path: .
       - name: Execute performance tests
         run: bash ci/performance-test.sh
