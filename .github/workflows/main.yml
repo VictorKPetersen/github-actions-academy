@@ -52,6 +52,12 @@ jobs:
     permissions:
       packages: write
     steps:
+      - name: Download artifcact
+        uses: actions/download-artifact@v5
+        with:
+          name: code
+          path: .
+          
       - name: Build docker
         run: bash ci/build-docker.sh
 
