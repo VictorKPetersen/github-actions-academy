@@ -11,4 +11,10 @@ jobs:
     steps:
       - name: Clone down repository
         uses: actions/checkout@v5
-      - run: ci/buildapp.sh
+        
+      - name: Build the application
+        run: ci/build-app.sh
+
+      - name: Run unit tests
+        run: ci/unit-test-app.sh
+      
